@@ -1,6 +1,6 @@
 import React, {Component, PropTypes} from 'react';
 import {connect} from 'react-redux';
-import {IndexLink} from 'react-router';
+// import {IndexLink} from 'react-router';
 import {LinkContainer} from 'react-router-bootstrap';
 import Navbar from 'react-bootstrap/lib/Navbar';
 import Nav from 'react-bootstrap/lib/Nav';
@@ -60,13 +60,15 @@ export default class App extends Component {
 
   render() {
     const {user} = this.props;
-    const styles = require('./App.scss');
     require('./header.css');
+    const styles = require('./App.scss');
+    const logoImage = require('./img/cd-logo.svg');
 
     return (
       <div className={styles.app}>
         <Helmet {...config.app.head}/>
         <header>
+          <div id="logo"><img src={logoImage} alt="Homepage" /></div>
           <div id="cd-hamburger-menu"><a className="cd-img-replace" href="#0">Menu</a></div>
           <div id="cd-cart-trigger"><a className="cd-img-replace" href="#0">Cart</a></div>
         </header>
