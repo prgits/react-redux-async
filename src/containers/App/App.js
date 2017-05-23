@@ -12,6 +12,7 @@ import { InfoBar } from 'components';
 import { push } from 'react-router-redux';
 import config from '../../config';
 import { asyncConnect } from 'redux-async-connect';
+// require('../../theme/main.js');
 
 @asyncConnect([{
   promise: ({store: {dispatch, getState}}) => {
