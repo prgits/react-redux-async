@@ -70,7 +70,6 @@ module.exports = {
       'bootstrap-sass!./src/theme/bootstrap.config.js',
       'font-awesome-webpack!./src/theme/font-awesome.config.js',
       './src/client.js',
-      './src/theme/jquery.min.js',
       './src/theme/main.js'
     ]
   },
