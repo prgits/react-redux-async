@@ -58,6 +58,77 @@ export default class App extends Component {
     this.props.logout();
   };
 
+  handleCartClick = (event) => {
+    event.preventDefault();
+    if (document.getElementById('main-nav').classList && document.getElementById('main-nav').classList.contains('speed-in')) {
+      document.getElementById('main-nav').classList.remove('speed-in');
+    }
+    if ( this.refs.cdCart.classList && this.refs.cdCart.classList.contains('speed-in') ) {
+      // firefox transitions break when parent overflow is changed, so we need to wait for the end of the trasition to give the body an overflow hidden
+      if ( this.refs.cdCart.classList && this.refs.cdCart.classList.contains('speed-in') ) {
+        this.refs.cdCart.classList.remove('speed-in');
+      }
+      if ( document.body.classList && document.body.classList.contains('overflow-hidden') ) {
+        document.body.classList.remove('overflow-hidden');
+      }
+      if ( this.refs.shadowLayer.classList && this.refs.shadowLayer.classList.contains('is-visible') ) {
+        this.refs.shadowLayer.classList.remove('is-visible');
+      }
+    } else {
+      this.refs.cdCart.classList.add('speed-in');
+      document.body.classList = 'overflow-hidden';
+      this.refs.shadowLayer.classList.add('is-visible');
+    }
+  }
+
+  handleShadowLayerClick = (event) => {
+    event.preventDefault();
+    // Hide shadow layer
+    if ( this.refs.shadowLayer.classList && this.refs.shadowLayer.classList.contains('is-visible') ) {
+      this.refs.shadowLayer.classList.remove('is-visible');
+    }
+
+    if ( document.body.classList && document.body.classList.contains('overflow-hidden') ) {
+      document.body.classList.remove('overflow-hidden');
+    }
+
+    if ( this.refs.cdCart.classList && this.refs.cdCart.classList.contains('speed-in') ) {
+      this.refs.cdCart.classList.remove('speed-in');
+      if ( document.getElementById('main-nav').classList && document.getElementById('main-nav').classList.contains('speed-in') ) {
+        document.getElementById('main-nav').classList.remove('speed-in');
+      }
+    } else {
+      if ( document.getElementById('main-nav').classList && document.getElementById('main-nav').classList.contains('speed-in') ) {
+        document.getElementById('main-nav').classList.remove('speed-in');
+      }
+      if ( this.refs.cdCart.classList && this.refs.cdCart.classList.contains('speed-in') ) {
+        this.refs.cdCart.classList.remove('speed-in');
+      }
+    }
+  }
+
+  handleHamburgerClick = (event) => {
+    event.preventDefault();
+
+    if ( this.refs.cdCart.classList && this.refs.cdCart.classList.remove('speed-in') ) {
+      this.refs.cdCart.classList.remove('speed-in');
+    }
+    if ( document.getElementById('main-nav').classList && document.getElementById('main-nav').classList.contains('speed-in') ) {
+      // firefox transitions break when parent overflow is changed, so we need to wait for the end of the trasition to give the body an overflow hidden
+      document.getElementById('main-nav').classList.remove('speed-in');
+      if ( document.body.classList && document.body.classList.contains('overflow-hidden') ) {
+        document.body.classList.remove('overflow-hidden');
+      }
+      if ( this.refs.shadowLayer.classList && this.refs.shadowLayer.classList.contains('is-visible') ) {
+        this.refs.shadowLayer.classList.remove('is-visible');
+      }
+    } else {
+      document.getElementById('main-nav').classList.add('speed-in');
+      document.body.classList = 'overflow-hidden';
+      this.refs.shadowLayer.classList.add('is-visible');
+    }
+  }
+
   render() {
     const {user} = this.props;
     require('./header.css');
@@ -69,10 +140,10 @@ export default class App extends Component {
         <Helmet {...config.app.head}/>
         <header>
           <div id="logo"><img src={logoImage} alt="Homepage" /></div>
-          <div id="cd-hamburger-menu"><a className="cd-img-replace" href="#0">Menu</a></div>
-          <div id="cd-cart-trigger"><a className="cd-img-replace" href="#0">Cart</a></div>
+          <div id="cd-hamburger-menu" onClick={this.handleHamburgerClick}><a className="cd-img-replace" href="#0">Menu</a></div>
+          <div id="cd-cart-trigger" onClick={this.handleCartClick}><a className="cd-img-replace" href="#0">Cart</a></div>
         </header>
-        <Navbar fixedTop id="main-nav">
+        <Navbar ref="mainNav" fixedTop id="main-nav">
           <Nav navbar>
             {user && <LinkContainer to="/chat">
               <NavItem eventKey={1}>Chat</NavItem>
@@ -112,8 +183,8 @@ export default class App extends Component {
           </Nav>
         </Navbar>
 
-        <div id="cd-shadow-layer"/>
-        <div id="cd-cart">
+        <div ref="shadowLayer" id="cd-shadow-layer" onClick={this.handleShadowLayerClick}/>
+        <div id="cd-cart" ref="cdCart">
           <h2>Cart</h2>
           <ul className="cd-cart-items">
             <li>
