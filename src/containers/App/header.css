@@ -128,12 +128,12 @@ header {
 }
 @media only screen and (min-width: 1200px) {
     header {
-        height: 68px;
+        height: 62px;
     }
 }
 
 #logo {
-    padding-top: 14px;
+    padding-top: 11px;
     /* delete this property if you don't want your logo to scale down on mobile devices */
     -webkit-transform: scale(0.8);
     -moz-transform: scale(0.8);
@@ -217,7 +217,7 @@ header {
     #main-nav, #cd-cart {
         width: 30%;
         /* header height has changed */
-        padding-top: 68px;
+        padding-top: 62px;
     }
 }
 
@@ -255,7 +255,7 @@ header {
         background-color: transparent;
         box-shadow: none;
         /* header height */
-        line-height: 68px;
+        line-height: 62px;
         z-index: 4;
     }
     #main-nav li {
@@ -393,17 +393,17 @@ main {
     position: relative;
     min-height: 100%;
     background: #eeeff7;
-    padding-top: 68px;
+    padding-top: 65px;
     z-index: 1;
 }
 @media only screen and (min-width: 768px) {
     main {
-        padding-top: 68px;
+        padding-top: 65px;
     }
 }
 @media only screen and (min-width: 1200px) {
     main {
-        padding-top: 68px;
+        padding-top: 65px;
     }
 }
 

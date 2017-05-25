@@ -176,8 +176,6 @@ export default class App extends Component {
               </NavItem>
             </LinkContainer>}
           </Nav>
-          {user &&
-          <p className={styles.loggedInMessage + ' navbar-text'}>Logged in as <strong>{user.name}</strong>.</p>}
         </Navbar>
 
         <div ref="shadowLayer" id="cd-shadow-layer" onClick={this.handleShadowLayerClick}/>
