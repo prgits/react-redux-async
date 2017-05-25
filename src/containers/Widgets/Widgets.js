@@ -4,7 +4,7 @@ import {connect} from 'react-redux';
 import * as widgetActions from 'redux/modules/widgets';
 import {isLoaded, load as loadWidgets} from 'redux/modules/widgets';
 import {initializeWithKey} from 'redux-form';
-import { WidgetForm } from 'components';
+import { WidgetForm, BreadCrumb } from 'components';
 import { asyncConnect } from 'redux-async-connect';
 
 @asyncConnect([{
@@ -46,13 +46,12 @@ export default class Widgets extends Component {
     }
     const styles = require('./Widgets.scss');
     return (
-      <div className={styles.widgets + ' container'}>
-        <h1>
-          Widgets
-          <button className={styles.refreshBtn + ' btn btn-success'} onClick={load}>
-            <i className={refreshClassName}/> {' '} Reload Widgets
-          </button>
-        </h1>
+      <div className={styles.widgets + ' container-fluid'}>
+        <BreadCrumb items={[
+          {link: '/survey', label: 'Survey'},
+          {link: '/widgets', label: 'Widgets'}
+        ]}
+                    refreshClassName={refreshClassName} loadPage={load}/>
         <Helmet title="Widgets"/>
         <p>
           If you hit refresh on your browser, the data loading will take place on the server before the page is returned.

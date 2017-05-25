@@ -13,7 +13,7 @@ export default class Home extends Component {
       <div className={styles.home}>
         <Helmet title="Home"/>
         <div className={styles.masthead}>
-          <div className="container">
+          <div className="container-fluid">
             <div className={styles.logo}>
               <p>
                 <img src={logoImage}/>

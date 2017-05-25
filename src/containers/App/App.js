@@ -76,7 +76,7 @@ export default class App extends Component {
       }
     } else {
       this.refs.cdCart.classList.add('speed-in');
-      document.body.classList = 'overflow-hidden';
+      document.body.classList.add('overflow-hidden');
       this.refs.shadowLayer.classList.add('is-visible');
     }
   }
@@ -124,7 +124,7 @@ export default class App extends Component {
       }
     } else {
       document.getElementById('main-nav').classList.add('speed-in');
-      document.body.classList = 'overflow-hidden';
+      document.body.classList.add('overflow-hidden');
       this.refs.shadowLayer.classList.add('is-visible');
     }
   }
@@ -145,6 +145,9 @@ export default class App extends Component {
         </header>
         <Navbar ref="mainNav" fixedTop id="main-nav">
           <Nav navbar>
+            <LinkContainer to="/">
+              <NavItem eventKey={0}>Home</NavItem>
+            </LinkContainer>
             {user && <LinkContainer to="/chat">
               <NavItem eventKey={1}>Chat</NavItem>
             </LinkContainer>}
@@ -175,12 +178,6 @@ export default class App extends Component {
           </Nav>
           {user &&
           <p className={styles.loggedInMessage + ' navbar-text'}>Logged in as <strong>{user.name}</strong>.</p>}
-          <Nav navbar pullRight>
-            <NavItem eventKey={1} target="_blank" title="View on Github"
-                     href="https://github.com/erikras/react-redux-universal-hot-example">
-              <i className="fa fa-github"/>
-            </NavItem>
-          </Nav>
         </Navbar>
 
         <div ref="shadowLayer" id="cd-shadow-layer" onClick={this.handleShadowLayerClick}/>
