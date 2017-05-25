@@ -12,16 +12,18 @@ export default class BreadCrumb extends Component {
     console.log(items + 'fafdsf');
     return (
       <div className="row">
-        <div className="btn-group btn-breadcrumb">
-          <Link className="btn btn-success" to="/"><i className="glyphicon glyphicon-home"/>{' '}Home</Link>
-          {items && items.length &&
-            items.map((item, key) =>
-              <Link className="btn btn-success" to={item.link} key={key}
-                    onClick={loadPage}>
-                {item.label} {(key + 1 === items.length) && <i className={refreshClassName}/>}
-              </Link>
-            )
-          }
+        <div className="col-md-12 col-lg-12 col-sm-12 col-xs-12">
+          <div className="btn-group btn-breadcrumb">
+            <Link className="btn btn-success" to="/"><i className="glyphicon glyphicon-home"/>{' '}Home</Link>
+            {items && items.length &&
+              items.map((item, key) =>
+                <Link className="btn btn-success" to={item.link} key={key}
+                      onClick={loadPage}>
+                  {item.label} {(key + 1 === items.length) && <i className={refreshClassName}/>}
+                </Link>
+              )
+            }
+          </div>
         </div>
       </div>
     );
