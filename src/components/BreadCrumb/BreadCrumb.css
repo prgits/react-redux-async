@@ -7,7 +7,7 @@
   border-bottom-left-radius: 4px;
   border-bottom-right-radius: 4px;
 }
-.btn-breadcrumb .btn:not(:last-child):after {
+.btn-breadcrumb a.btn:not(:last-child):after {
   content: " ";
   display: block;
   width: 0;
@@ -21,7 +21,7 @@
   left: 100%;
   z-index: 3;
 }
-.btn-breadcrumb .btn:not(:last-child):before {
+.btn-breadcrumb a.btn:not(:last-child):before {
   content: " ";
   display: block;
   width: 0;
@@ -38,28 +38,28 @@
 }
 
 /** The Spacing **/
-.btn-breadcrumb .btn {
+.btn-breadcrumb a.btn {
   padding:6px 12px 6px 24px;
   border-top-left-radius: 0;
   border-top-right-radius: 0;
 }
-.btn-breadcrumb .btn:first-child {
+.btn-breadcrumb a.btn:first-child {
   padding:6px 6px 6px 10px;
 }
-.btn-breadcrumb .btn:last-child {
+.btn-breadcrumb a.btn:last-child {
   padding:6px 18px 6px 24px;
   border-bottom-right-radius: 0;
   border-right: 0;
 }
 
 /** Default button **/
-.btn-breadcrumb .btn.btn-default:not(:last-child):after {
+.btn-breadcrumb a.btn.btn-default:not(:last-child):after {
   border-left: 10px solid #fff;
 }
-.btn-breadcrumb .btn.btn-default:not(:last-child):before {
+.btn-breadcrumb a.btn.btn-default:not(:last-child):before {
   border-left: 10px solid #ccc;
 }
-.btn-breadcrumb .btn.btn-default:hover:not(:last-child):after {
+.btn-breadcrumb a.btn.btn-default:hover:not(:last-child):after {
   border-left: 10px solid #ebebeb;
 }
 .btn-breadcrumb .btn.btn-default:hover:not(:last-child):before {
@@ -67,28 +67,28 @@
 }
 
 /** Success button **/
-.btn-breadcrumb .btn.btn-success:not(:last-child):after {
+.btn-breadcrumb a.btn.btn-success:not(:last-child):after {
   border-left: 10px solid #5cb85c;
 }
-.btn-breadcrumb .btn.btn-success:not(:last-child):before {
+.btn-breadcrumb a.btn.btn-success:not(:last-child):before {
   border-left: 10px solid #439c43;
 }
-.btn-breadcrumb .btn.btn-success:hover:not(:last-child):after {
+.btn-breadcrumb a.btn.btn-success:hover:not(:last-child):after {
   border-left: 10px solid #449d44;
 }
-.btn-breadcrumb .btn.btn-success:hover:not(:last-child):before {
+.btn-breadcrumb a.btn.btn-success:hover:not(:last-child):before {
   border-left: 10px solid #398439;
 }
-.btn-breadcrumb .btn.btn-success:hover{
+.btn-breadcrumb a.btn.btn-success:hover{
   background-color: #449d44;
   border-top-color: #398439;
   border-bottom-color: #398439;
   border-left-color: #398439;
 }
-.btn-breadcrumb .btn.btn-success:not(:last-child):focus:after{
+.btn-breadcrumb a.btn.btn-success:not(:last-child):focus:after{
   z-index: 100;
 }
-.btn-breadcrumb .btn.btn-success:last-child:focus{
+.btn-breadcrumb a.btn.btn-success:last-child:focus{
   background-color: #5cb85c;
   border-color: #4cae4c;
   z-index: 0;

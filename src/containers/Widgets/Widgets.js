@@ -50,8 +50,7 @@ export default class Widgets extends Component {
         <BreadCrumb items={[
           {link: '/survey', label: 'Survey'},
           {link: '/widgets', label: 'Widgets'}
-        ]}
-                    refreshClassName={refreshClassName} loadPage={load}/>
+        ]} refreshClassName={refreshClassName} loadPage={load}/>
         <Helmet title="Widgets"/>
         <p>
           If you hit refresh on your browser, the data loading will take place on the server before the page is returned.
